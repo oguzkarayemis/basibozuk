@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import BookCard from '../components/BookCard.astro';
+
+const allBooks = await getCollection('books');
+
+// Tarihe göre en yeniden en eskiye sırala
+const sortedBooks = allBooks.sort((a, b) => {
+  const dateA = a.data.pubDate ? new Date(a.data.pubDate).valueOf() : 0;
+  const dateB = b.data.pubDate ? new Date(b.data.pubDate).valueOf() : 0;
+  return dateB - dateA;
+});
+---
+
+<Layout title="başıbozuk e-yayıncılık | yeraltından taze nefesler">
+  <section class="publications">
+    <div class="book-grid">
+      {sortedBooks.map((book) => (
+        <BookCard book={book} />
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .publications {
+    margin-top: 4rem;
+    min-height: 50vh;
+  }
+
+  .book-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .book-grid :global(.book-card) {
+    width: 100%;
+    max-width: 350px;
+  }
+</style>

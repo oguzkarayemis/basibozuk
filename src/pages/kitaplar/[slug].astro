@@ -1,0 +1,201 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+export async function getStaticPaths() {
+  const books = await getCollection('books');
+  return books.map((book) => ({
+    params: { slug: book.slug },
+    props: { book },
+  }));
+}
+
+const { book } = Astro.props;
+const { title, author, description, price, coverImage, epubLink, pdfLink, zipLink } = book.data;
+const { Content } = await book.render();
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Book",
+  "name": title,
+  "author": {
+    "@type": "Person",
+    "name": author
+  },
+  "url": new URL(Astro.url.pathname, Astro.site).href,
+  "description": description,
+  "offers": {
+    "@type": "Offer",
+    "price": price,
+    "priceCurrency": "TRY",
+    "availability": "https://schema.org/InStock",
+    "url": pdfLink
+  }
+};
+---
+
+<Layout title={`${title} | başıbozuk e-yayıncılık`} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+  <article class="book-detail">
+    <div class="book-header">
+      {coverImage && <Image src={coverImage} alt={`${title} Kapak Resmi`} class="book-cover" format="webp" width={400} loading="eager" fetchpriority="high" decoding="sync" />}
+      <div class="book-info">
+        <h1>{title}</h1>
+        <h2 class="author">{author}</h2>
+        
+        <div class="price-action">
+          <span class="price">Açık Erişim</span>
+          <div class="download-links">
+            <a href={epubLink} target="_blank" rel="noopener noreferrer" class="buy-button">EPUB</a>
+            <a href={pdfLink} target="_blank" rel="noopener noreferrer" class="buy-button">PDF</a>
+            <a href={zipLink} target="_blank" rel="noopener noreferrer" class="buy-button">Baskı Kiti (ZIP)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="book-content">
+      <div class="description">
+        <p>{description}</p>
+      </div>
+      <div class="render-content">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .book-detail {
+    margin-top: 2rem;
+  }
+  .book-header {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  .book-cover {
+    max-width: 300px;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border: 1px solid var(--color-bg-secondary);
+  }
+  .book-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .book-info h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .author {
+    font-size: 1.5rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  .price-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-bg-secondary);
+  }
+  .price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+  }
+  .download-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .buy-button {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease;
+  }
+  .buy-button:hover {
+    background-color: var(--color-text);
+  }
+  .book-content {
+    max-width: 720px;
+    margin: 4rem auto 0;
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+  .book-content :global(p), .description p {
+    margin-bottom: 1.75rem;
+  }
+  .description {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    position: relative;
+    border: none;
+    text-align: justify;
+  }
+  .description::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    background-color: var(--color-text-muted);
+    margin: 3rem auto 0;
+  }
+  
+  .render-content :global(h2) {
+    font-size: 2rem;
+    margin-top: 3.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--color-text);
+  }
+  
+  .render-content :global(h3) {
+    font-size: 1.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+
+  .render-content :global(blockquote) {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 3.5rem 0;
+    line-height: 1.4;
+    border: none;
+    padding: 0;
+    color: var(--color-text);
+  }
+  
+  .render-content :global(blockquote p) {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .book-header { flex-direction: column; align-items: center; text-align: center; }
+    .book-cover { max-width: 100%; height: auto; }
+    .price-action { flex-direction: column; width: 100%; gap: 1rem; }
+    .buy-button { width: 100%; text-align: center; }
+  }
+</style>
