@@ -48,9 +48,9 @@ const schema = {
         <div class="price-action">
           <span class="price">Açık Erişim</span>
           <div class="download-links">
-            <a href={epubLink} target="_blank" rel="noopener noreferrer" class="buy-button">EPUB</a>
-            <a href={pdfLink} target="_blank" rel="noopener noreferrer" class="buy-button">PDF</a>
-            <a href={zipLink} target="_blank" rel="noopener noreferrer" class="buy-button">Baskı Kiti (ZIP)</a>
+            <a href={epubLink} onclick={`typeof dataLayer !== 'undefined' && dataLayer.push({'event': 'download', 'file_type': 'epub', 'book_title': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">EPUB</a>
+            <a href={pdfLink} onclick={`typeof dataLayer !== 'undefined' && dataLayer.push({'event': 'download', 'file_type': 'pdf', 'book_title': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">PDF</a>
+            <a href={zipLink} onclick={`typeof dataLayer !== 'undefined' && dataLayer.push({'event': 'download', 'file_type': 'zip', 'book_title': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">Baskı Kiti (ZIP)</a>
           </div>
         </div>
       </div>
