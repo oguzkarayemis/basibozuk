@@ -13,6 +13,8 @@ const booksCollection = defineCollection({
     epubLink: z.string().url(),
     pdfLink: z.string().url(),
     zipLink: z.string().url(),
+    isbnEpub: z.string().optional(),
+    isbnPdf: z.string().optional(),
   }),
 });
 

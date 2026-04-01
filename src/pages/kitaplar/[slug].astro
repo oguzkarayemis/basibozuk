@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { book } = Astro.props;
-const { title, author, description, price, coverImage, epubLink, pdfLink, zipLink } = book.data;
+const { title, author, description, price, coverImage, epubLink, pdfLink, zipLink, isbnEpub, isbnPdf } = book.data;
 const { Content } = await book.render();
 
 const schema = {
@@ -31,7 +31,8 @@ const schema = {
     "priceCurrency": "TRY",
     "availability": "https://schema.org/InStock",
     "url": pdfLink
-  }
+  },
+  "isbn": isbnPdf || isbnEpub
 };
 ---
 
@@ -44,6 +45,13 @@ const schema = {
       <div class="book-info">
         <h1>{title}</h1>
         <h2 class="author">{author}</h2>
+        
+        {(isbnEpub || isbnPdf) && (
+          <div class="book-metadata">
+            {isbnEpub && <p><span>ISBN (EPUB):</span> {isbnEpub}</p>}
+            {isbnPdf && <p><span>ISBN (PDF/KİT):</span> {isbnPdf}</p>}
+          </div>
+        )}
         
         <div class="price-action">
           <span class="price">Açık Erişim</span>
@@ -100,6 +108,19 @@ const schema = {
     color: var(--color-text-muted);
     font-weight: 400;
     margin-bottom: 2rem;
+  }
+  .book-metadata {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  .book-metadata p {
+    margin: 0;
+  }
+  .book-metadata span {
+    font-weight: 700;
+    margin-right: 0.5rem;
   }
   .price-action {
     display: flex;

@@ -2,6 +2,11 @@
 
 Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birikecektir. Sistem "Karadelik" felsefesine sadık kalacak şekilde temiz ve otonom tutulacaktır.
 
+## [1.0.2] - 2026-04-02
+
+### Eklenenler (Added)
+- **ISBN Verisi Entegrasyonu:** *Ekoloji ve Ekonomi I* kitabının referans bilgileri olan `isbnEpub` ve `isbnPdf` kodları (9786250061510 ve 9786250038468) Zod şemasına, kitap veritabanına ve görsel arayüze eklendi. Ayrıca arama motoru dizinlemeleri için SEO/JSON-LD şemasına dahil edildi.
+
 ## [1.0.1] - 2026-04-01
 
 ### Düzeltilenler (Fixed)
