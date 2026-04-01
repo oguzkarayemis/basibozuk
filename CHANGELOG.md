@@ -2,6 +2,12 @@
 
 Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birikecektir. Sistem "Karadelik" felsefesine sadık kalacak şekilde temiz ve otonom tutulacaktır.
 
+## [1.0.1] - 2026-04-01
+
+### Düzeltilenler (Fixed)
+- **Karakter ve Alt Küme (Subset) Çatışması:** "Açık Erişim" ve diğer Türkçe kelimelerdeki (`ç`, `ı`, `ş` vb.) harflerin, Merriweather fontunun Kiril (Cyrillic) alt kümelerine zorlanması nedeniyle oluşan render/yedek font (fallback) problemi çözüldü. 
+- **Font Mimarisi Yenilendi:** `download-fonts.js` betiği onarılarak lokal font haritasını doğru şekilde (`fonts.css`) oluşturması sağlandı. Vite `preload` bağlantıları ve global CSS tanımlamaları, Latin ve Latin-Ext alt kümelerini doğru çağıracak şekilde güncellendi. Artık tipografi sistem fontlarına düşmeden tamamen felsefeye sadık çiziliyor.
+
 ## [1.0.0] - 2026-04-01
 
 ### Eklenenler (Added)

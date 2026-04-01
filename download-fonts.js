@@ -10,16 +10,30 @@ https.get(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; 
     let match;
     const regex = /url\((https:\/\/[^\)]+\.woff2)\)/g;
     let i = 1;
-    while ((match = regex.exec(css)) !== null) {
-      const fontUrl = match[1];
-      const filename = `public/fonts/merriweather-${i}.woff2`;
+    let localCss = css;
+    
+    // Replace URLs in CSS with local paths
+    localCss = localCss.replace(regex, (match, fontUrl) => {
+      const filename = `merriweather-${i}.woff2`;
+      i++;
+      return `url('/fonts/${filename}')`;
+    });
+    
+    // Download files (we can reuse the logic, just reset i)
+    let downloadI = 1;
+    let downloadMatch;
+    while ((downloadMatch = regex.exec(css)) !== null) {
+      const fontUrl = downloadMatch[1];
+      const filename = `public/fonts/merriweather-${downloadI}.woff2`;
       const file = fs.createWriteStream(filename);
       https.get(fontUrl, response => {
         response.pipe(file);
         console.log(`Downloaded ${filename}`);
       });
-      i++;
+      downloadI++;
     }
-    fs.writeFileSync('public/fonts/fonts.css', css);
+    
+    fs.writeFileSync('public/fonts/fonts.css', localCss);
+    console.log("Updated fonts.css generated with local paths!");
   });
 });
