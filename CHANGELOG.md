@@ -2,6 +2,12 @@
 
 Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birikecektir. Sistem "Karadelik" felsefesine sadık kalacak şekilde temiz ve otonom tutulacaktır.
 
+## [1.0.4] - 2026-04-02
+
+### Düzeltilenler (Fixed)
+- **Tip (Type) Güvenliği:** Sitenin derleme sırasında editör (IDE) ortamında "Cannot find module 'astro:content'" hatası vermesine neden olan eksik konfigürasyon dosyaları (`tsconfig.json` ve `src/env.d.ts`) sisteme yeniden dahil edildi.
+- **Zod Şeması Katılaştırıldı:** `config.ts` içindeki `dizi` değişkeni, sıfır-şişkinlik felsefesine aykırı olduğu ve kullanılmadığı için tamamen silindi. E-kitap dosyaları (`epubLink`, `pdfLink`, `zipLink`) zorunlu (strict) hale getirildi; böylece kitap eklenirken linklerin unutulması ihtimaline karşı yapı bütünüyle güvenli hale çekildi.
+
 ## [1.0.3] - 2026-04-02
 
 ### Değiştirilenler (Changed)

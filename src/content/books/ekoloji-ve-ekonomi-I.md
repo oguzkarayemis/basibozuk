@@ -9,7 +9,6 @@ coverImage: "../../assets/images/01-okar-ekoloji1.png"
 epubLink: "https://drive.google.com/file/d/138pIH09cB-Qb3cTQeR9kTInOwkgQugBA/view?usp=sharing"
 pdfLink: "https://drive.google.com/file/d/1IrQhwiwiCsMVs0Aq2_JlqGbs-5L4rjKv/view?usp=sharing"
 zipLink: "https://drive.google.com/file/d/1lNKFH-LTCEaoh1Yh5UZDLSQ6vPA-flaE/view?usp=sharing"
-dizi: "ekoloji-ve-ekonomi"
 isbnEpub: "9786250061510"
 isbnPdf: "9786250038468"
 ---
