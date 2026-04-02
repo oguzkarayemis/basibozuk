@@ -2,6 +2,11 @@
 
 Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birikecektir. Sistem "Karadelik" felsefesine sadık kalacak şekilde temiz ve otonom tutulacaktır.
 
+## [1.0.3] - 2026-04-02
+
+### Değiştirilenler (Changed)
+- **Slogan Güncellemesi:** Sitenin kalbindeki motto "Yeraltından taze nefesler" yerine "Karadelikten yayınlar" olarak güncellendi. Bu felsefi tona ayarlama işlemi ana sayfa `<title>` etiketinde ve tüm site geneli _footer_ alanında uygulandı.
+
 ## [1.0.2] - 2026-04-02
 
 ### Eklenenler (Added)
