@@ -1,5 +1,5 @@
 # başıbozuk e-yayıncılık
-Bu depo, başıbozuk e-yayıncılık'ın IPFS yeraltı web sitesinin kaynak kodlarını barındırır. "Karanlıkta aranan bir ses" felsefesiyle, sıfır JS (Astro) mimarisi kullanılarak inşa edilmiştir.
+Bu depo, başıbozuk e-yayıncılık'ın IPFS yeraltı web sitesinin kaynak kodlarını barındırır. "Karadelikten yayın yapma" felsefesiyle, sıfır JS (Astro) mimarisi kullanılarak inşa edilmiştir.
 
 ## Mimari Özellikler
 - **Framework:** Astro (Static Site Generation)
