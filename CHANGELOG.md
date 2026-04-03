@@ -2,6 +2,14 @@
 
 Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birikecektir. Sistem "Karadelik" felsefesine sadık kalacak şekilde temiz ve otonom tutulacaktır.
 
+## [1.0.6] - 2026-04-03
+
+### Eklenenler (Added)
+- **ISBN Verisi:** *Felsefeye Giriş Seminerleri* kitabı için `isbnEpub` (978-625-00-4014-0) ve `isbnPdf` (978-625-00-5987-6) bilgileri eklendi.
+
+### Değiştirilenler (Changed)
+- **ISBN Formatı Güncellemesi:** *Ekoloji ve Ekonomi I* kitabının ISBN formatı salt rakam biçiminden treli uluslararası standart formata (978-625-...) çevrildi.
+
 ## [1.0.5] - 2026-04-03
 
 ### Eklenenler (Added)

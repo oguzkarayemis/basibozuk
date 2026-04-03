@@ -9,6 +9,8 @@ coverImage: "../../assets/images/02-okar-felsefeyegiris.png"
 epubLink: "https://drive.google.com/file/d/1ZMPxf6y0KxejVnWmJ1sS78TvKjw7ZJ8G/view?usp=sharing"
 pdfLink: "https://drive.google.com/file/d/12W9mEBWAv3luVXkbmv7ivYK1ON857xEX/view?usp=sharing"
 zipLink: "https://drive.google.com/file/d/1W6ls86sXQcJEYxkLdGYPiD9LSis-_A68/view?usp=sharing"
+isbnEpub: "978-625-00-4014-0"
+isbnPdf: "978-625-00-5987-6"
 ---
 
 Felsefe, genellikle yaşamın uzağında, sadece uzmanların anladığı steril bir odada yürütülen soyut bir etkinlik olarak sunulur. Bu kitap, felsefeyi bir "bilgi yığını" olmaktan çıkarıp bir "yapma biçimi" olarak yeniden konumlandırmayı deniyor. Dört seminerlik bir diziye dayanan bu çalışma, Platon’dan Deleuze’e, Descartes’tan Kant’a uzanan bir hat üzerinde felsefenin o bildik uysal imgesini sarsmayı hedefliyor.
