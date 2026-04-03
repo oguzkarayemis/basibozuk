@@ -2,6 +2,11 @@
 
 Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birikecektir. Sistem "Karadelik" felsefesine sadık kalacak şekilde temiz ve otonom tutulacaktır.
 
+## [1.0.5] - 2026-04-03
+
+### Eklenenler (Added)
+- **Yeni Kitap:** *Felsefeye Giriş Seminerleri* (Oğuz Karayemiş) sisteme eklendi ve açık erişim bağlantıları (EPUB, PDF, Baskı Kiti ZIP) bağlandı.
+
 ## [1.0.4] - 2026-04-02
 
 ### Düzeltilenler (Fixed)
