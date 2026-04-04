@@ -2,8 +2,12 @@
 
 Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birikecektir. Sistem "Karadelik" felsefesine sadık kalacak şekilde temiz ve otonom tutulacaktır.
 
-## [1.0.6] - 2026-04-03
+## [1.0.7] - 2026-04-04
 
+### Düzeltilenler (Fixed)
+- **Analitik İndirme Sızıntısı:** Kitap indirme butonlarındaki ("EPUB", "PDF", "Baskı Kiti (ZIP)") Google Analytics takip etkinliği (`gtag`) özel `download` adından standart `file_download` yapısına taşındı. Etkinlik parametrelerindeki `book_title`, `file_name` olarak; `file_type` ise `file_extension` olarak güncellendi. Böylece indirme metriklerinde yaşanan "*(not set)*" -kayan veri- (data leak) problemi tamamen giderildi ve Google'ın yerleşik veri kalıbıyla tam uyum sağlandı.
+
+## [1.0.6] - 2026-04-03
 ### Eklenenler (Added)
 - **ISBN Verisi:** *Felsefeye Giriş Seminerleri* kitabı için `isbnEpub` (978-625-00-4014-0) ve `isbnPdf` (978-625-00-5987-6) bilgileri eklendi.
 
