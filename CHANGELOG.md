@@ -2,6 +2,11 @@
 
 Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birikecektir. Sistem "Karadelik" felsefesine sadık kalacak şekilde temiz ve otonom tutulacaktır.
 
+## [1.0.8] - 2026-04-07
+
+### Değiştirilenler (Changed)
+- **Otonom Analitik (GA4):** İndirme butonlarındaki Google'a ait standart `file_download` gtag etkinliği tamamen terk edildi. Veri sansürüne ("not set") engel olmak için, parametreleri özelleştirilmiş (`format`, `kitap_adi`) ve sistemi dış müdahalelere kapatan otonom `kitap_indir` izleme yapısına geçildi.
+
 ## [1.0.7] - 2026-04-04
 
 ### Düzeltilenler (Fixed)

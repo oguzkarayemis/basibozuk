@@ -56,9 +56,9 @@ const schema = {
         <div class="price-action">
           <span class="price">Açık Erişim</span>
           <div class="download-links">
-            <a href={epubLink} onclick={`typeof gtag === 'function' && gtag('event', 'file_download', {'file_extension': 'epub', 'file_name': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">EPUB</a>
-            <a href={pdfLink} onclick={`typeof gtag === 'function' && gtag('event', 'file_download', {'file_extension': 'pdf', 'file_name': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">PDF</a>
-            <a href={zipLink} onclick={`typeof gtag === 'function' && gtag('event', 'file_download', {'file_extension': 'zip', 'file_name': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">Baskı Kiti (ZIP)</a>
+            <a href={epubLink} onclick={`typeof gtag === 'function' && gtag('event', 'kitap_indir', {'format': 'epub', 'kitap_adi': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">EPUB</a>
+            <a href={pdfLink} onclick={`typeof gtag === 'function' && gtag('event', 'kitap_indir', {'format': 'pdf', 'kitap_adi': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">PDF</a>
+            <a href={zipLink} onclick={`typeof gtag === 'function' && gtag('event', 'kitap_indir', {'format': 'zip', 'kitap_adi': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">Baskı Kiti (ZIP)</a>
           </div>
         </div>
       </div>
