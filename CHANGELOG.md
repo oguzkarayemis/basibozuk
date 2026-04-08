@@ -2,6 +2,16 @@
 
 Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birikecektir. Sistem "Karadelik" felsefesine sadık kalacak şekilde temiz ve otonom tutulacaktır.
 
+## [1.0.9] - 2026-04-08
+
+### Eklenenler (Added)
+- **Alt Başlık Desteği:** Kitap isimlerindeki noktalama işaretlerinin (örn. iki nokta) dosya indirme isimlerinde çıkarabileceği hataların önüne geçmek için Zod şemasına (`src/content/config.ts`) `subtitle` (alt başlık) alanı eklendi ve `[slug].astro` arayüzüne zarif bir biçimde (`<h2 class="subtitle">`) yansıtıldı.
+- **Dinamik İndirme:** `[slug].astro` içerisindeki indirme butonlarına HTML5 `download` niteliği eklendi. IPFS/Pinata üzerinden yerel olarak çekilen dosyalar sistemde `Yazar - Kitap.uzantı` formatında kusursuz isimlendirilecek şekilde otomatize edildi.
+
+### Değiştirilenler (Changed)
+- **Harici Dosyaların Lokalizasyonu:** Dışarıda tutulan (Google Drive) kitap PDF, EPUB ve ZIP linkleri, tam otonom mimari gereği projenin çekirdeğine (`public/download/...`) alınarak lokalize edildi ve Markdown veritabanlarındaki linkler mutlak (absolute) yönlendirmelere göre güncellendi.
+- **Analitik Sistemi (Cookieless):** Layout.astro ve butonlardaki tüm Google Analytics (gtag) JS kodları ve etkinlik takipleri (kitap_indir vs) sistemden tamamen söküldü. İzleme sistemi Cloudflare proxy'si üzerinden sıfır çerez (cookieless) otonom çalışacak şekilde ağ seviyesine devredildi.
+
 ## [1.0.8] - 2026-04-07
 
 ### Değiştirilenler (Changed)

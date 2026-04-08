@@ -6,9 +6,9 @@ pubDate: "2026-04-03"
 manset: false
 price: "Ücretsiz (Açık Erişim)"
 coverImage: "../../assets/images/02-okar-felsefeyegiris.png"
-epubLink: "https://drive.google.com/file/d/1ZMPxf6y0KxejVnWmJ1sS78TvKjw7ZJ8G/view?usp=sharing"
-pdfLink: "https://drive.google.com/file/d/12W9mEBWAv3luVXkbmv7ivYK1ON857xEX/view?usp=sharing"
-zipLink: "https://drive.google.com/file/d/1W6ls86sXQcJEYxkLdGYPiD9LSis-_A68/view?usp=sharing"
+epubLink: "/download/felsefeye-giris-seminerleri/kitap.epub"
+pdfLink: "/download/felsefeye-giris-seminerleri/kitap.pdf"
+zipLink: "/download/felsefeye-giris-seminerleri/kitap.zip"
 isbnEpub: "978-625-00-4014-0"
 isbnPdf: "978-625-00-5987-6"
 ---

@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { book } = Astro.props;
-const { title, author, description, price, coverImage, epubLink, pdfLink, zipLink, isbnEpub, isbnPdf } = book.data;
+const { title, subtitle, author, description, price, coverImage, epubLink, pdfLink, zipLink, isbnEpub, isbnPdf } = book.data;
 const { Content } = await book.render();
 
 const schema = {
@@ -44,7 +44,8 @@ const schema = {
       {coverImage && <Image src={coverImage} alt={`${title} Kapak Resmi`} class="book-cover" format="webp" width={400} loading="eager" fetchpriority="high" decoding="sync" />}
       <div class="book-info">
         <h1>{title}</h1>
-        <h2 class="author">{author}</h2>
+        {subtitle && <h2 class="subtitle">{subtitle}</h2>}
+        <h3 class="author">{author}</h3>
         
         {(isbnEpub || isbnPdf) && (
           <div class="book-metadata">
@@ -56,9 +57,9 @@ const schema = {
         <div class="price-action">
           <span class="price">Açık Erişim</span>
           <div class="download-links">
-            <a href={epubLink} onclick={`typeof gtag === 'function' && gtag('event', 'kitap_indir', {'format': 'epub', 'kitap_adi': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">EPUB</a>
-            <a href={pdfLink} onclick={`typeof gtag === 'function' && gtag('event', 'kitap_indir', {'format': 'pdf', 'kitap_adi': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">PDF</a>
-            <a href={zipLink} onclick={`typeof gtag === 'function' && gtag('event', 'kitap_indir', {'format': 'zip', 'kitap_adi': '${title}'});`} target="_blank" rel="noopener noreferrer" class="buy-button">Baskı Kiti (ZIP)</a>
+            <a href={epubLink} download={`${author} - ${title}.epub`} class="buy-button">EPUB</a>
+            <a href={pdfLink} download={`${author} - ${title}.pdf`} class="buy-button">PDF</a>
+            <a href={zipLink} download={`${author} - ${title}.zip`} class="buy-button">Baskı Kiti (ZIP)</a>
           </div>
         </div>
       </div>
@@ -103,11 +104,19 @@ const schema = {
     text-wrap: balance;
     line-height: 1.3;
   }
+  .subtitle {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-text-muted);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
   .author {
     font-size: 1.5rem;
     color: var(--color-text-muted);
     font-weight: 400;
     margin-bottom: 2rem;
+    margin-top: 0.25rem;
   }
   .book-metadata {
     font-size: 0.9rem;

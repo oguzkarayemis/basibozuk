@@ -1,14 +1,15 @@
 ---
-title: "Ekoloji ve Ekonomi I: Sermayenin Girişimleri ve Yeryüzünün Mukavemeti"
+title: "Ekoloji ve Ekonomi I"
+subtitle: "Sermayenin Girişimleri ve Yeryüzünün Mukavemeti"
 author: "Oğuz Karayemiş"
 description: "Oğuz Karayemiş tarafından kaleme alınan ve 'Ekoloji ve Ekonomi' üçlemesinin ilk halkasını oluşturan kuramsal çalışma."
 pubDate: "2026-04-01"
 manset: true
 price: "Ücretsiz (Açık Erişim)"
 coverImage: "../../assets/images/01-okar-ekoloji1.png"
-epubLink: "https://drive.google.com/file/d/138pIH09cB-Qb3cTQeR9kTInOwkgQugBA/view?usp=sharing"
-pdfLink: "https://drive.google.com/file/d/1IrQhwiwiCsMVs0Aq2_JlqGbs-5L4rjKv/view?usp=sharing"
-zipLink: "https://drive.google.com/file/d/1lNKFH-LTCEaoh1Yh5UZDLSQ6vPA-flaE/view?usp=sharing"
+epubLink: "/download/ekoloji-ve-ekonomi-I/kitap.epub"
+pdfLink: "/download/ekoloji-ve-ekonomi-I/kitap.pdf"
+zipLink: "/download/ekoloji-ve-ekonomi-I/kitap.zip"
 isbnEpub: "978-625-00-6151-0"
 isbnPdf: "978-625-00-3846-8"
 ---
