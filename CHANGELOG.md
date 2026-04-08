@@ -2,9 +2,11 @@
 
 Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birikecektir. Sistem "Karadelik" felsefesine sadık kalacak şekilde temiz ve otonom tutulacaktır.
 
-## [1.0.9] - 2026-04-08
+## [2.0.0] - 2026-04-08
+> *Pinata/IPFS göçü, çerezsiz (cookieless) analitik ve pürüzsüz yerleşim (layout) sayesinde "Karadelikten yayınlar" manifestosu mekanik bir biçimde de tam otonomisine ve hedefine ulaşmıştır.*
 
 ### Eklenenler (Added)
+- **Serbest Metin Bağlantısı:** Yazarın müdahale yazılarını yayınladığı *Serbest Metin* (serbestmetin.blog) adresine giden bir dış bağlantı, sitenin tepe menüsünde (Academia.edu'nun bitişiğine) eklendi. Dar ekranlarda (mobil) menü bağlantılarının sıkışmasını önlemek için CSS `flex-wrap` özelliği dahil edildi.
 - **Alt Başlık Desteği:** Kitap isimlerindeki noktalama işaretlerinin (örn. iki nokta) dosya indirme isimlerinde çıkarabileceği hataların önüne geçmek için Zod şemasına (`src/content/config.ts`) `subtitle` (alt başlık) alanı eklendi ve `[slug].astro` arayüzüne zarif bir biçimde (`<h2 class="subtitle">`) yansıtıldı.
 - **Dinamik İndirme:** `[slug].astro` içerisindeki indirme butonlarına HTML5 `download` niteliği eklendi. IPFS/Pinata üzerinden yerel olarak çekilen dosyalar sistemde `Yazar - Kitap.uzantı` formatında kusursuz isimlendirilecek şekilde otomatize edildi.
 
