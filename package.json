@@ -1,1 +1,1 @@
-{"name":"basibozuk-web","version":"2.0.0","type":"module","dependencies":{"@astrojs/sitemap":"^3.7.1","astro":"^5.18.0"},"scripts":{"dev":"astro dev --host","build":"astro build","preview":"astro preview","astro":"astro"}}
+{"name":"basibozuk-web","version":"2.0.1","type":"module","dependencies":{"@astrojs/sitemap":"^3.7.1","astro":"^5.18.0"},"scripts":{"dev":"astro dev --host","build":"astro build","preview":"astro preview","astro":"astro"}}
