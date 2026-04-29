@@ -4,6 +4,15 @@ Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birike
 
 Bu dosya [Değişiklik Kaydı Tutma (Keep a Changelog)](https://keepachangelog.com/tr/1.0.0/) prensiplerini baz alır ve sürüm numaralandırmasında [Anlamsal Sürümlendirme (SemVer)](https://semver.org/lang/tr/) kurallarına uyar.
 
+## [2.0.1] - 2026-04-29
+
+### Eklendi
+- **Özel 404 Sayfası:** Karadelik konseptine uygun, kırık veya eksik linklere düşüldüğünde kullanılacak olan statik hata sayfası (`404.astro`) oluşturuldu.
+- **Dinamik Paylaşım Görseli (Open Graph):** Sosyal medya paylaşımlarında metadatanın daha zengin görünmesi için `og:image` dinamiği entegre edildi ve kitap detay sayfalarından (`[slug].astro`) `Layout.astro`'ya kapak görselleri bağlandı.
+
+### Düzeltildi
+- **Klavye Erişilebilirliği (a11y):** Klavyeyle (Tab) sayfada gezinen kullanıcılar için etkileşimli alanların belli olmasını sağlamak amacıyla global `:focus-visible` stilleri eklendi.
+
 ## [2.0.0] - 2026-04-08
 > *Pinata/IPFS göçü, çerezsiz (cookieless) analitik ve pürüzsüz yerleşim (layout) sayesinde "Karadelikten yayınlar" manifestosu mekanik bir biçimde de tam otonomisine ve hedefine ulaşmıştır.*
 
@@ -71,6 +80,7 @@ Bu dosya [Değişiklik Kaydı Tutma (Keep a Changelog)](https://keepachangelog.c
 - **İlk Kitap:** *Ekoloji ve Ekonomi I: Sermayenin Girişimleri ve Yeryüzünün Mukavemeti* sistemi test edip tam ortadan manşete oturacak şekilde eklendi ve indirme butonları bağlandı.
 - **Tamamen Sadeleştirilmiş İskelet:** İleride çıkabilecek karmaşayı önlemek için; "Diziler", gereksiz arşivleme sayfaları ve bülten sistemleri tamamen kod tabanından temizlendi. Sadece Academia.edu iletişimi bırakıldı.
 
+[2.0.1]: #
 [2.0.0]: #
 [1.0.8]: #
 [1.0.7]: #

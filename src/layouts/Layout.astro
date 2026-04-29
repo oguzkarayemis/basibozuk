@@ -6,9 +6,10 @@ import logoImage from '../assets/images/logo.png';
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = "başıbozuk e-yayıncılık. Karadelikten yayınlar." } = Astro.props;
+const { title, description = "başıbozuk e-yayıncılık. Karadelikten yayınlar.", ogImage } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
@@ -37,6 +38,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="tr_TR" />
+    {ogImage && <meta property="og:image" content={new URL(ogImage, Astro.site).href} />}
   </head>
   <body>
     <header class="site-header">

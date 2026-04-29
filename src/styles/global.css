@@ -56,6 +56,11 @@ a:hover {
   color: #5c0000;
 }
 
+:focus-visible {
+  outline: 2px dashed var(--color-accent);
+  outline-offset: 4px;
+}
+
 
 .container {
   max-width: 800px;

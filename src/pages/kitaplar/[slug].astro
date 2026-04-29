@@ -36,7 +36,7 @@ const schema = {
 };
 ---
 
-<Layout title={`${title} | başıbozuk e-yayıncılık`} description={description}>
+<Layout title={`${title} | başıbozuk e-yayıncılık`} description={description} ogImage={coverImage?.src}>
   <script type="application/ld+json" set:html={JSON.stringify(schema)} />
 
   <article class="book-detail">
