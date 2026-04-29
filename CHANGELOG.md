@@ -2,65 +2,68 @@
 
 Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birikecektir. Sistem "Karadelik" felsefesine sadık kalacak şekilde temiz ve otonom tutulacaktır.
 
+Bu dosya [Değişiklik Kaydı Tutma (Keep a Changelog)](https://keepachangelog.com/tr/1.0.0/) prensiplerini baz alır ve sürüm numaralandırmasında [Anlamsal Sürümlendirme (SemVer)](https://semver.org/lang/tr/) kurallarına uyar.
+
 ## [2.0.0] - 2026-04-08
 > *Pinata/IPFS göçü, çerezsiz (cookieless) analitik ve pürüzsüz yerleşim (layout) sayesinde "Karadelikten yayınlar" manifestosu mekanik bir biçimde de tam otonomisine ve hedefine ulaşmıştır.*
 
-### Eklenenler (Added)
+### Eklendi
 - **Serbest Metin Bağlantısı:** Yazarın müdahale yazılarını yayınladığı *Serbest Metin* (serbestmetin.blog) adresine giden bir dış bağlantı, sitenin tepe menüsünde (Academia.edu'nun bitişiğine) eklendi. Dar ekranlarda (mobil) menü bağlantılarının sıkışmasını önlemek için CSS `flex-wrap` özelliği dahil edildi.
 - **Alt Başlık Desteği:** Kitap isimlerindeki noktalama işaretlerinin (örn. iki nokta) dosya indirme isimlerinde çıkarabileceği hataların önüne geçmek için Zod şemasına (`src/content/config.ts`) `subtitle` (alt başlık) alanı eklendi ve `[slug].astro` arayüzüne zarif bir biçimde (`<h2 class="subtitle">`) yansıtıldı.
 - **Dinamik İndirme:** `[slug].astro` içerisindeki indirme butonlarına HTML5 `download` niteliği eklendi. IPFS/Pinata üzerinden yerel olarak çekilen dosyalar sistemde `Yazar - Kitap.uzantı` formatında kusursuz isimlendirilecek şekilde otomatize edildi.
 
-### Değiştirilenler (Changed)
+### Değişti
 - **Harici Dosyaların Lokalizasyonu:** Dışarıda tutulan (Google Drive) kitap PDF, EPUB ve ZIP linkleri, tam otonom mimari gereği projenin çekirdeğine (`public/download/...`) alınarak lokalize edildi ve Markdown veritabanlarındaki linkler mutlak (absolute) yönlendirmelere göre güncellendi.
 - **Analitik Sistemi (Cookieless):** Layout.astro ve butonlardaki tüm Google Analytics (gtag) JS kodları ve etkinlik takipleri (kitap_indir vs) sistemden tamamen söküldü. İzleme sistemi Cloudflare proxy'si üzerinden sıfır çerez (cookieless) otonom çalışacak şekilde ağ seviyesine devredildi.
 
 ## [1.0.8] - 2026-04-07
 
-### Değiştirilenler (Changed)
+### Değişti
 - **Otonom Analitik (GA4):** İndirme butonlarındaki Google'a ait standart `file_download` gtag etkinliği tamamen terk edildi. Veri sansürüne ("not set") engel olmak için, parametreleri özelleştirilmiş (`format`, `kitap_adi`) ve sistemi dış müdahalelere kapatan otonom `kitap_indir` izleme yapısına geçildi.
 
 ## [1.0.7] - 2026-04-04
 
-### Düzeltilenler (Fixed)
+### Düzeltildi
 - **Analitik İndirme Sızıntısı:** Kitap indirme butonlarındaki ("EPUB", "PDF", "Baskı Kiti (ZIP)") Google Analytics takip etkinliği (`gtag`) özel `download` adından standart `file_download` yapısına taşındı. Etkinlik parametrelerindeki `book_title`, `file_name` olarak; `file_type` ise `file_extension` olarak güncellendi. Böylece indirme metriklerinde yaşanan "*(not set)*" -kayan veri- (data leak) problemi tamamen giderildi ve Google'ın yerleşik veri kalıbıyla tam uyum sağlandı.
 
 ## [1.0.6] - 2026-04-03
-### Eklenenler (Added)
+
+### Eklendi
 - **ISBN Verisi:** *Felsefeye Giriş Seminerleri* kitabı için `isbnEpub` (978-625-00-4014-0) ve `isbnPdf` (978-625-00-5987-6) bilgileri eklendi.
 
-### Değiştirilenler (Changed)
+### Değişti
 - **ISBN Formatı Güncellemesi:** *Ekoloji ve Ekonomi I* kitabının ISBN formatı salt rakam biçiminden treli uluslararası standart formata (978-625-...) çevrildi.
 
 ## [1.0.5] - 2026-04-03
 
-### Eklenenler (Added)
+### Eklendi
 - **Yeni Kitap:** *Felsefeye Giriş Seminerleri* (Oğuz Karayemiş) sisteme eklendi ve açık erişim bağlantıları (EPUB, PDF, Baskı Kiti ZIP) bağlandı.
 
 ## [1.0.4] - 2026-04-02
 
-### Düzeltilenler (Fixed)
+### Düzeltildi
 - **Tip (Type) Güvenliği:** Sitenin derleme sırasında editör (IDE) ortamında "Cannot find module 'astro:content'" hatası vermesine neden olan eksik konfigürasyon dosyaları (`tsconfig.json` ve `src/env.d.ts`) sisteme yeniden dahil edildi.
 - **Zod Şeması Katılaştırıldı:** `config.ts` içindeki `dizi` değişkeni, sıfır-şişkinlik felsefesine aykırı olduğu ve kullanılmadığı için tamamen silindi. E-kitap dosyaları (`epubLink`, `pdfLink`, `zipLink`) zorunlu (strict) hale getirildi; böylece kitap eklenirken linklerin unutulması ihtimaline karşı yapı bütünüyle güvenli hale çekildi.
 
 ## [1.0.3] - 2026-04-02
 
-### Değiştirilenler (Changed)
+### Değişti
 - **Slogan Güncellemesi:** Sitenin kalbindeki motto "Yeraltından taze nefesler" yerine "Karadelikten yayınlar" olarak güncellendi. Bu felsefi tona ayarlama işlemi ana sayfa `<title>` etiketinde ve tüm site geneli _footer_ alanında uygulandı.
 
 ## [1.0.2] - 2026-04-02
 
-### Eklenenler (Added)
+### Eklendi
 - **ISBN Verisi Entegrasyonu:** *Ekoloji ve Ekonomi I* kitabının referans bilgileri olan `isbnEpub` ve `isbnPdf` kodları (9786250061510 ve 9786250038468) Zod şemasına, kitap veritabanına ve görsel arayüze eklendi. Ayrıca arama motoru dizinlemeleri için SEO/JSON-LD şemasına dahil edildi.
 
 ## [1.0.1] - 2026-04-01
 
-### Düzeltilenler (Fixed)
+### Düzeltildi
 - **Karakter ve Alt Küme (Subset) Çatışması:** "Açık Erişim" ve diğer Türkçe kelimelerdeki (`ç`, `ı`, `ş` vb.) harflerin, Merriweather fontunun Kiril (Cyrillic) alt kümelerine zorlanması nedeniyle oluşan render/yedek font (fallback) problemi çözüldü. 
 - **Font Mimarisi Yenilendi:** `download-fonts.js` betiği onarılarak lokal font haritasını doğru şekilde (`fonts.css`) oluşturması sağlandı. Vite `preload` bağlantıları ve global CSS tanımlamaları, Latin ve Latin-Ext alt kümelerini doğru çağıracak şekilde güncellendi. Artık tipografi sistem fontlarına düşmeden tamamen felsefeye sadık çiziliyor.
 
 ## [1.0.0] - 2026-04-01
 
-### Eklenenler (Added)
+### Eklendi
 - **Astro Altyapısı İlk Sürüm:** Çöküşten yeni bir özerkliğe doğru giden yolda, sıfır JS, tam statik derleme ve uçar gibi çalışan yepyeni bir mimari kuruldu.
 - **Tasarım Dili (UI/UX):** Fildişi/Kağıt beyazı (`#f7f4e7`) zemin ve Gece siyahı (`#090f10`) kontrastıyla yeraltı edebiyatına uygun bir tasarım sistemi oluşturuldu. Klasik matbaa estetiği için sistem geneline **Merriweather** fontu entegre edildi.
 - **Açık Kaynak Dağıtım Şeması:** Kitapları okurlara doğrudan ulaştırmak için içerik doğrulama modellerine (Zod) **EPUB**, **PDF** ve **Baskı Kiti (ZIP)** alanları eklendi.
@@ -68,4 +71,13 @@ Bütün değişiklikler ve teknik mimariye atılan düğümler bu dosyada birike
 - **İlk Kitap:** *Ekoloji ve Ekonomi I: Sermayenin Girişimleri ve Yeryüzünün Mukavemeti* sistemi test edip tam ortadan manşete oturacak şekilde eklendi ve indirme butonları bağlandı.
 - **Tamamen Sadeleştirilmiş İskelet:** İleride çıkabilecek karmaşayı önlemek için; "Diziler", gereksiz arşivleme sayfaları ve bülten sistemleri tamamen kod tabanından temizlendi. Sadece Academia.edu iletişimi bırakıldı.
 
-*Motor çalıştırıldı.*
+[2.0.0]: #
+[1.0.8]: #
+[1.0.7]: #
+[1.0.6]: #
+[1.0.5]: #
+[1.0.4]: #
+[1.0.3]: #
+[1.0.2]: #
+[1.0.1]: #
+[1.0.0]: #
